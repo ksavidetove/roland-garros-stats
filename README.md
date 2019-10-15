@@ -6,6 +6,9 @@ This server is build and deployed with [the serverless framework](https://server
 To this project, install serveless globally 
 ```npm install -g serverless```
 
+Install all dependencies
+``` npm install ```
+
 You can then run the server locally with the command 
 ```serverless offline```
 
