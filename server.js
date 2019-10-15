@@ -1,4 +1,6 @@
 'use strict';
+const sls = require('serverless-http');
+
 var https = require('https');
 var express = require('express');
 var port = process.env.PORT || 3000;
@@ -60,3 +62,6 @@ app.listen(port, err => {
     else
         console.log('Server listening on port ', port);
 });
+
+
+module.exports.run = sls(app);

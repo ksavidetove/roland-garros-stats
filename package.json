@@ -7,6 +7,10 @@
         "name": "ksavidetove"
     },
     "dependencies": {
-        "express": "4.17.1"
+        "express": "4.17.1",
+        "serverless-http": "^2.3.0"
+    },
+    "devDependencies": {
+        "serverless-offline": "^5.12.0"
     }
 }

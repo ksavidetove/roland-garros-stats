@@ -1,0 +1,24 @@
+service: roland-garros-stats
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+  environment:
+    dataAPI: "https://eurosportdigital.github.io/eurosport-node-developer-recruitment/headtohead.json"
+
+functions:
+  app:
+    handler: server.run
+    events:
+      - http:
+          path: /players
+          method: get
+          cors: false 
+      - http:
+          path: /players/{playerId}
+          method: get
+          cors: false

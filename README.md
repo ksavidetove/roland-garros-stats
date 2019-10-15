@@ -1,17 +1,20 @@
 # roland-garros-stats
 A simple nodeJS web server
 
-Build the dependencies with ``` npm install ```
+This server is build and deployed with [the serverless framework](https://serverless.com/) to AWS
 
-You can then run the server locally with 
+To this project, install serveless globally 
+```npm install -g serverless```
 
-```
-dataAPI=https://eurosportdigital.github.io/eurosport-node-developer-recruitment/headtohead.json npm start server.js
-```
+You can then run the server locally with the command 
+```serverless offline```
 
-The server will be laucnh on port 3000.
+The server will be launch on port 3000
 
-###Available endpoints:
+
+An online version of it can be find at [https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev](https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev)
+
+# Available endpoints:
 
 ## List all players
 
@@ -21,7 +24,7 @@ Get all players available through dataAPI
 
 **Method** : `GET`
 
-# Success Response
+### Success Response
 
 **Code** : `200 OK`
 
@@ -69,6 +72,43 @@ Get all players available through dataAPI
         "age": 38,
         "last": [0, 1, 0, 0, 1]
       }
+    }]
+}
+```
+
+# Get a player
+
+Get a player specified by its ID
+
+**URL** : `/players/:id`
+
+**Method** : `GET`
+
+### Success Response
+
+**Code** : `200 OK`
+
+**Content examples**
+
+```json
+{
+  "id": 52,
+  "firstname": "Novak",
+  "lastname": "Djokovic",
+  "shortname": "N.DJO",
+  "sex": "M",
+  "country": {
+	"picture": "https://i.eurosport.com/_iss_/geo/country/flag/medium/6944.png",
+	"code": "SRB"
+  },
+  "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/565920.jpg",
+  "data": {
+	"rank": 2,
+	"points": 2542,
+	"weight": 80000,
+	"height": 188,
+	"age": 31,
+	"last": [1, 1, 1, 1, 1]
     }]
 }
 ```
