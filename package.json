@@ -1,0 +1,12 @@
+{
+    "name": "roland-garros-stats",
+    "version": "0.0.0",
+    "description": "roland-garros-stats",
+    "main": "server.js",
+    "author": {
+        "name": "ksavidetove"
+    },
+    "dependencies": {
+        "express": "4.17.1"
+    }
+}
