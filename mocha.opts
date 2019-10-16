@@ -3,4 +3,5 @@
 -R spec
 --ui bdd
 --exit
-test/**/*.test.js
+test/serverRun.js
+test/*.test.js
