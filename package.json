@@ -7,12 +7,11 @@
         "name": "ksavidetove"
     },
     "scripts": {
-        "start": "sls offline --useSeparateProcesses",
+        "start": "sls offline start",
         "test": "mocha --options mocha.opts --color"
     },
     "dependencies": {
-        "express": "4.17.1",
-        "serverless-http": "^2.3.0"
+        "express": "4.17.1"
     },
     "devDependencies": {
         "chai": "4.2.0",

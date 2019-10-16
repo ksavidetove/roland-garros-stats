@@ -13,7 +13,7 @@ before(function (done) {
             return done(err);
         }
 
-        console.log("[Tests Bootstrap] Done");
+        console.log("Server started");
         done();
     })
 });
@@ -30,20 +30,12 @@ after(function () {
 // Helper functions
 
 function startSlsOffline(done) {
-    const home = process.env.HOME;
-    let command = "";
-
-    if (/^c:\\/i.test(home))
-        command = "c:/cygwin64/bin/bash.exe -c 'serverless'";
-    else
-        command = "serverless";
-    console.log(command);
-    slsOfflineProcess = spawn(command, ["offline", "start", "--useSeparateProcesses"]);
+    slsOfflineProcess = spawn('serverless', ["offline"]);
 
     console.log(`Serverless: Offline started with PID : ${slsOfflineProcess.pid}`);
 
     slsOfflineProcess.stdout.on('data', (data) => {
-        if (data.includes("Offline listening on")) {
+        if (data.includes("listening on")) {
             console.log(data.toString().trim());
             done();
         }

@@ -30,7 +30,7 @@ describe('app', () => {
 
     it('returns 404 if Player doesn\'t exists', (done) => {
         request('localhost:3000')
-            .get('/player/55')
+            .get('/players/55')
             .expect(404, done);
     });
 });

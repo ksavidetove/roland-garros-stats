@@ -1,31 +1,53 @@
 'use strict';
-const sls = require('serverless-http');
-
-const express = require('express');
-const port = process.env.PORT || 3000;
-
-const app = express();
 
 const playerService = require('./lib/playerService');
 
-app.get('/players', function (req, res) {
-    playerService.listPlayers()
-        .then(data => res.json(data))
-        .catch(err => res.status(500).send(err));
-});
 
-app.get('/players/:playerId', function (req, res) {
-    playerService.getPlayer(req.params.playerId)
-        .then(data => data ? res.json(data) : res.status(404).send('Player not Found'))
-        .catch(err => res.status(500).send(err));
-});
+module.exports.listPlayers = (event, context, callback) => {
+  playerService.listPlayers()
+    .then(data => {
+      const response = {
+        statusCode: 200,
+        body: JSON.stringify(data)
+      };
 
-app.listen(port, err => {
-    if (err)
-        console.error(err);
-    else
-        console.log('Server listening on port ', port);
-});
+      callback(null, response);
+    })
+    .catch(err => {
+      const response = {
+        statusCode: 500,
+        body: JSON.stringify({stack: err})
+      };
+
+      callback(null, response);
+    });
+};
 
 
-module.exports.run = sls(app);
+module.exports.getPlayer = (event, context, callback) => {
+  playerService.getPlayer(event.pathParameters.playerId)
+    .then(data => {
+        let response;
+
+        if (data)
+          response = {
+            statusCode: 200,
+            body: JSON.stringify(data)
+          };
+        else
+            response = {
+              statusCode: 404,
+              body: JSON.stringify({message: 'Player not Found'})
+            };
+
+      callback(null, response);
+    })
+    .catch(err => {
+      const response = {
+        statusCode: 500,
+        body: JSON.stringify({stack: err})
+      };
+
+      callback(null, response)
+    });
+};

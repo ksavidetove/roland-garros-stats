@@ -11,13 +11,16 @@ provider:
     dataAPI: "https://eurosportdigital.github.io/eurosport-node-developer-recruitment/headtohead.json"
 
 functions:
-  app:
-    handler: server.run
+  listPLayers:
+    handler: server.listPlayers
     events:
       - http:
           path: /players
           method: get
-          cors: false 
+          cors: false
+  getPLayer:
+    handler: server.getPlayer
+    events:
       - http:
           path: /players/{playerId}
           method: get

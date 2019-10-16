@@ -12,14 +12,14 @@ To this project, install serveless globally
 Install all dependencies
 ``` npm install ```
 
-You can then run the server locally with the command 
-```serverless offline --useSeparateProcesses```
 
-The server will be launch on port 3000
+You can then :
 
-After launching locally the server, tests can be start with the command
+* run the server locally on port 3000 with the command 
+```serverless offline```
+
+* run the tests, which launch locally the server in the first place and run the mocha tests
 ```npm run test```
-
 
 An online version of this project can be found at [https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev](https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev)
 
