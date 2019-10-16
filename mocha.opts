@@ -1,0 +1,6 @@
+--timeout 5000
+--reporter list
+-R spec
+--ui bdd
+--exit
+test/**/*.test.js

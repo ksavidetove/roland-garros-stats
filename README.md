@@ -1,7 +1,10 @@
 # roland-garros-stats
 A simple nodeJS web server
 
-This server is build and deployed with [the serverless framework](https://serverless.com/) to AWS
+This server is build and deployed with [the serverless framework](https://serverless.com/) to AWS Lambda and served by AWS Gateway
+
+First, make sure that your node version is 10.16.0 or higher with
+``` node -v ```
 
 To this project, install serveless globally 
 ```npm install -g serverless```
@@ -10,12 +13,15 @@ Install all dependencies
 ``` npm install ```
 
 You can then run the server locally with the command 
-```serverless offline```
+```serverless offline --useSeparateProcesses```
 
 The server will be launch on port 3000
 
+After launching locally the server, tests can be start with the command
+```npm run test```
 
-An online version of it can be find at [https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev](https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev)
+
+An online version of this project can be found at [https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev](https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev)
 
 # Available endpoints:
 
