@@ -1,3 +1,5 @@
+[![Codeship Status for ksavidetove/roland-garros-stats](https://app.codeship.com/projects/f8f73780-d209-0137-9455-36169c9ec608/status?branch=master)](https://app.codeship.com/projects/369763)
+
 # roland-garros-stats
 A simple nodeJS web server
 
@@ -21,7 +23,7 @@ You can then :
 * run the tests, which launch locally the server in the first place and run the mocha tests
 ```npm run test```
 
-An online version of this project can be found at [https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev](https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev)
+An online version tested and deployed automatically by [codeship](https://app.codeship.com/projects/369763) can be found at [https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev](https://ab2hferf95.execute-api.us-east-1.amazonaws.com/dev)
 
 # Available endpoints:
 
